@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ExplosionController : MonoBehaviour
 {
-	private float scale=1;
+	private float scale=100;
 	void Update(){
-		scale+=.02f;
+		scale+=2;
 		transform.localScale=new Vector3(scale,scale,1);
-		gameObject.GetComponent<Renderer>().material.SetFloat("_Alpha",1-.3f*scale);
-		if(scale>4)Destroy(gameObject);
+		gameObject.GetComponent<Renderer>().material.SetFloat("_Alpha",1-.003f*scale);
+		if(scale>400)Destroy(gameObject);
 	}
 }

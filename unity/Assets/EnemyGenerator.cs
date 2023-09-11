@@ -9,6 +9,6 @@ public class EnemyGenerator : MonoBehaviour
 		InvokeRepeating("GenEnemy",1,4);
 	}
 	void GenEnemy(){
-		Instantiate(enemyPrefab,new Vector3(6*Random.value,6,0),Quaternion.identity);
+		Instantiate(enemyPrefab,new Vector3(64+768*Random.value,960,0),Quaternion.identity);
 	}
 }
