@@ -1,9 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class JikiController : MonoBehaviour
-{
+public class JikiController:MonoBehaviour{
 	private int t=0;
 	public GameObject PlBulletPrefab;
 	void Update(){

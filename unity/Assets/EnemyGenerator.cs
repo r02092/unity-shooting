@@ -1,9 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyGenerator : MonoBehaviour
-{
+public class EnemyGenerator:MonoBehaviour{
 	public GameObject enemyPrefab;
 	void Start(){
 		InvokeRepeating("GenEnemy",1,4);

@@ -1,9 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplosionController : MonoBehaviour
-{
+public class ExplosionController:MonoBehaviour{
 	private float scale=100;
 	void Update(){
 		scale+=2;

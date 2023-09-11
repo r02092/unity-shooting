@@ -1,9 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlBulletController : MonoBehaviour
-{
+public class PlBulletController:MonoBehaviour{
 	public GameObject explosionPrefab;
 	void Update(){
 		transform.Translate(0,20,0);

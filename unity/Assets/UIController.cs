@@ -1,11 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
 
-public class UIController : MonoBehaviour
-{
+public class UIController:MonoBehaviour{
 	int score=0;
 	GameObject scoreText;
 	[SerializeField] TextMeshProUGUI textMeshProUI;

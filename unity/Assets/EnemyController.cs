@@ -1,9 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
-{
+public class EnemyController:MonoBehaviour{
 	float fallSpeed;
 	void Start(){
 		this.fallSpeed=4+4*Random.value;
