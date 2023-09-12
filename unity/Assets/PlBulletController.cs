@@ -12,7 +12,7 @@ public class PlBulletController:MonoBehaviour{
 		if(transform.position.y>960)Destroy(gameObject);
 	}
 	void OnTriggerEnter2D(Collider2D coll){
-		if(coll.gameObject.name!="jiki"){
+		if(coll.gameObject.name=="enemy(Clone)"){
 			GameObject.Find("GameObject").GetComponent<UIController>().AddScore(combo);
 			Instantiate(explosionPrefab,transform.position,Quaternion.identity);
 			Destroy(coll.gameObject);

@@ -6,6 +6,7 @@ public class EnemyController:MonoBehaviour{
 	public int type;
 	public int id;
 	private int time;
+	public GameObject EnBulletPrefab;
 	void Start(){
 		time=0;
 	}
@@ -50,6 +51,26 @@ public class EnemyController:MonoBehaviour{
 				if(transform.position.y<0)Destroy(gameObject);
 				break;
 			case 4:
+				int dx=0;
+				int dy=0;
+				if(transform.position.y>704){
+					if(transform.position.x>128){
+						dx=-1;
+					}else{
+						dy=-1;
+					}
+				}else{
+					dx=1;
+					if(transform.position.x>880)Destroy(gameObject);
+				}
+				transform.Translate(dx,dy,0);
+				if(time%128==0){
+					for(int i=0;i<3;i++){
+						GameObject obj=Instantiate(EnBulletPrefab,transform.position,Quaternion.identity);
+						obj.GetComponent<EnBulletController>().dx=dx+new int[]{-1, 0, 1}[i];
+						obj.GetComponent<EnBulletController>().dy=dy+new int[]{-1,-1,-1}[i];
+					}
+				}
 				break;
 			case 5:
 				break;
