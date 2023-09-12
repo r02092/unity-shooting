@@ -9,9 +9,6 @@ public class EnemyController:MonoBehaviour{
 	}
 	void Update(){
 		transform.Translate(0,-fallSpeed,0,Space.World);
-		if(transform.position.y<0){
-			GameObject.Find("GameOver").GetComponent<UnityEngine.UI.Image>().enabled=true;
-			Destroy(gameObject);
-		}
+		if(transform.position.y<0)Destroy(gameObject);
 	}
 }

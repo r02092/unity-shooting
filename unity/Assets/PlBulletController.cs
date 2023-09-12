@@ -8,9 +8,11 @@ public class PlBulletController:MonoBehaviour{
 		if(transform.position.y>960)Destroy(gameObject);
 	}
 	void OnTriggerEnter2D(Collider2D coll){
-		GameObject.Find("GameObject").GetComponent<UIController>().AddScore();
-		Instantiate(explosionPrefab,transform.position,Quaternion.identity);
-		Destroy(coll.gameObject);
-		Destroy(gameObject);
+		if(coll.gameObject.name!="jiki"){
+			GameObject.Find("GameObject").GetComponent<UIController>().AddScore();
+			Instantiate(explosionPrefab,transform.position,Quaternion.identity);
+			Destroy(coll.gameObject);
+			Destroy(gameObject);
+		}
 	}
 }

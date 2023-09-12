@@ -18,4 +18,11 @@ public class JikiController:MonoBehaviour{
 			}
 		}
 	}
+	void OnTriggerEnter2D(Collider2D coll){
+		if(coll.gameObject.name!="pl-bullet(Clone)"){
+			GameObject.Find("GameOver").GetComponent<UnityEngine.UI.Image>().enabled=true;
+			Destroy(coll.gameObject);
+			Destroy(gameObject);
+		}
+	}
 }
