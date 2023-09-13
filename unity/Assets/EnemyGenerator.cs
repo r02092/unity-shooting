@@ -1,29 +1,52 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using Random=UnityEngine.Random;
 
 public class EnemyGenerator:MonoBehaviour{
 	public GameObject enemyPrefab;
+	private int time;
 	void Start(){
-		InvokeRepeating("GenEnemy",1,9);
+		time=0;
 	}
-	void GenEnemy(){
-		int type=Random.Range(0,5);
-		for(int i=0;i<new int[]{9,12,10,12,4,0,0,0}[type];i++){
-			GameObject obj=Instantiate(enemyPrefab,new []{
-				new Vector2(320+(i%3)*128,960+(i/3)*128),
-				new Vector2(-128*i,480+(float)Math.Sin(Math.PI/6*i)*128),
-				new Vector2(320+(i%2)*256,960+(i/2)*128),
-				new Vector2(448+(float)Math.Sin(Math.PI/6*i)*128,960+128*i),
-				new Vector2(880+i*128,832),
-				new Vector2(0,0),
-				new Vector2(0,0),
-				new Vector2(0,0)
-			}[type],Quaternion.identity);
-			obj.GetComponent<SpriteRenderer>().sprite=Resources.LoadAll<Sprite>("enemy")[type];
-			obj.GetComponent<EnemyController>().type=type;
-			obj.GetComponent<EnemyController>().id=i;
+	void Update(){
+		int type;
+		switch(time){
+			case 0:
+				type=0;
+				break;
+			case 1920:
+				type=1;
+				break;
+			case 3840:
+				type=2;
+				break;
+			case 5760:
+				type=3;
+				break;
+			case 8640:
+				type=4;
+				break;
+			default:
+				type=-1;
+				break;
 		}
+		if(type!=-1){
+			for(int i=0;i<new int[]{9,12,10,12,4,0,0,0}[type];i++){
+				GameObject obj=Instantiate(enemyPrefab,new []{
+					new Vector2(320+(i%3)*128,960+(i/3)*128),
+					new Vector2(-128*i,480+(float)Math.Sin(Math.PI/6*i)*128),
+					new Vector2(320+(i%2)*256,960+(i/2)*128),
+					new Vector2(448+(float)Math.Sin(Math.PI/6*i)*128,960+128*i),
+					new Vector2(880+i*128,832),
+					new Vector2(0,0),
+					new Vector2(0,0),
+					new Vector2(0,0)
+				}[type],Quaternion.identity);
+				obj.GetComponent<SpriteRenderer>().sprite=Resources.LoadAll<Sprite>("enemy")[new int[]{0,1,2,3,4,5,6,7}[type]];
+				obj.GetComponent<EnemyController>().type=type;
+				obj.GetComponent<EnemyController>().id=i;
+			}
+		}
+		time++;
 	}
 }
