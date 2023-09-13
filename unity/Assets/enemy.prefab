@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   id: 0
+  r: 0
   EnBulletPrefab: {fileID: 2061168369204747242, guid: 508081be01ba4034ebdab632ceccfcb4, type: 3}
 --- !u!58 &7078208013971382929
 CircleCollider2D:
@@ -116,4 +117,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.24
+  m_Radius: 0.16

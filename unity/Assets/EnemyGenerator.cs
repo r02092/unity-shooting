@@ -45,6 +45,7 @@ public class EnemyGenerator:MonoBehaviour{
 				obj.GetComponent<SpriteRenderer>().sprite=Resources.LoadAll<Sprite>("enemy")[new int[]{0,1,2,3,4,5,6,7}[type]];
 				obj.GetComponent<EnemyController>().type=type;
 				obj.GetComponent<EnemyController>().id=i;
+				obj.GetComponent<EnemyController>().r=new int[]{32,32,32,32,32,32,32,32}[type];
 			}
 		}
 		time++;

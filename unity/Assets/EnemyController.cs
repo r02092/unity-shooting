@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController:MonoBehaviour{
 	public int type;
 	public int id;
+	public int r;
 	private int time;
 	public GameObject EnBulletPrefab;
 	void Start(){
