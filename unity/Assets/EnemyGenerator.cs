@@ -56,7 +56,7 @@ public class EnemyGenerator:MonoBehaviour{
 					new Vector2(320+(i%2)*256,960+(i/2)*128),
 					new Vector2(448+(float)Math.Sin(Math.PI/6*i)*128,960+128*i),
 					new Vector2(880+128*i,832),
-					new Vector2(i%2==0?16-128*i:752+128*i,320+(i/2)*128),
+					new Vector2(i%2<1?16-128*i:752+128*i,320+(i/2)*128),
 					new Vector2(16+864*i,320),
 					new Vector2(448,960)
 				}[type],Quaternion.identity);

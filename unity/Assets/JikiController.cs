@@ -13,7 +13,7 @@ public class JikiController:MonoBehaviour{
 			if(Input.GetKey(KeyCode.RightArrow)&&transform.position.x<800)transform.Translate( c, 0,0);
 			if(Input.GetKey(KeyCode.UpArrow   )&&transform.position.y<880)transform.Translate( 0, c,0);
 			if(Input.GetKey(KeyCode.Z)){
-				if(t==0)Instantiate(PlBulletPrefab,transform.position,Quaternion.identity);
+				if(t<1)Instantiate(PlBulletPrefab,transform.position,Quaternion.identity);
 				t++;
 				if(t==3)t=0;
 			}
