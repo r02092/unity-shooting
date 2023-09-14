@@ -107,6 +107,6 @@ public class EnemyController:MonoBehaviour{
 				break;
 		}
 		time++;
-		if(time-timeDamage>5)gameObject.GetComponent<SpriteRenderer>().color=new Color(1,1,1);
+		if(time-timeDamage>1)gameObject.GetComponent<SpriteRenderer>().color=new Color(1,1,1);
 	}
 }
