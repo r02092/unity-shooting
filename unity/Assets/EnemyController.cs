@@ -74,10 +74,34 @@ public class EnemyController:MonoBehaviour{
 				}
 				break;
 			case 5:
+				if(transform.position.x<320||transform.position.x>576){
+					transform.Translate((id%2)*-2+1,0,0);
+				}else if(time>1600){
+					transform.Translate(0,1,0);
+					if(transform.position.y>960)Destroy(gameObject);
+				}
 				break;
 			case 6:
+				transform.Translate((id%2)*-2+1,1,0);
+				if(time%128==0){
+					for(int i=0;i<3;i++){
+						GameObject obj=Instantiate(EnBulletPrefab,transform.position,Quaternion.identity);
+						obj.GetComponent<EnBulletController>().dx=(id%2)*-2+1+new int[]{(id%2)*-2+1,(id%2)*-2+1, 0}[i];
+						obj.GetComponent<EnBulletController>().dy=          1+new int[]{          -2,        -3,-3}[i];
+					}
+				}
+				if(transform.position.y>960)Destroy(gameObject);
 				break;
 			case 7:
+				if(time<360){
+					transform.Translate(0,-1,0);
+				}else{
+					if(time%10==0){
+						GameObject obj=Instantiate(EnBulletPrefab,transform.position,Quaternion.identity);
+						obj.GetComponent<EnBulletController>().dx=(float)Math.Cos(time);
+						obj.GetComponent<EnBulletController>().dy=(float)Math.Sin(time);
+					}
+				}
 				break;
 		}
 		time++;

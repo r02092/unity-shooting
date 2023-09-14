@@ -2,8 +2,8 @@ using System.Collections;
 using UnityEngine;
 
 public class EnBulletController:MonoBehaviour{
-	public int dx;
-	public int dy;
+	public float dx;
+	public float dy;
 	public int r=16;
 	void Update(){
 		transform.Translate(dx,dy,0);
