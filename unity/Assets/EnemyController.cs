@@ -6,7 +6,9 @@ public class EnemyController:MonoBehaviour{
 	public int type;
 	public int id;
 	public int r;
-	private int time;
+	public int hp;
+	public int time;
+	public int timeDamage;
 	public GameObject EnBulletPrefab;
 	void Start(){
 		time=0;
@@ -105,5 +107,6 @@ public class EnemyController:MonoBehaviour{
 				break;
 		}
 		time++;
+		if(time-timeDamage>5)gameObject.GetComponent<SpriteRenderer>().color=new Color(1,1,1);
 	}
 }

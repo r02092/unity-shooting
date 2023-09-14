@@ -64,6 +64,7 @@ public class EnemyGenerator:MonoBehaviour{
 				obj.GetComponent<EnemyController>().type=type;
 				obj.GetComponent<EnemyController>().id=i;
 				obj.GetComponent<EnemyController>().r=new int[]{32,32,32,32,32,32,32,32}[type];
+				obj.GetComponent<EnemyController>().hp=new int[]{2,2,2,2,2,2,2,2}[type];
 			}
 		}
 		time++;
