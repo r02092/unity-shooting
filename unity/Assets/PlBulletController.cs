@@ -15,6 +15,7 @@ public class PlBulletController:MonoBehaviour{
 		if(coll.gameObject.name=="enemy(Clone)"){
 			GameObject.Find("GameObject").GetComponent<UIController>().AddScore(combo);
 			Instantiate(explosionPrefab,transform.position,Quaternion.identity);
+			if(coll.gameObject.GetComponent<EnemyController>().type==7)GameObject.Find("Clear").GetComponent<UnityEngine.UI.Image>().enabled=true;
 			Destroy(coll.gameObject);
 			combo++;
 		}
