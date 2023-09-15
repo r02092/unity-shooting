@@ -5,8 +5,12 @@ using TMPro;
 
 public class UIController:MonoBehaviour{
 	int score=0;
+	float timeMn;
+	float timeCnt;
+	int frames;
 	GameObject scoreText;
-	[SerializeField] TextMeshProUGUI textMeshProUI;
+	[SerializeField] TextMeshProUGUI textScore;
+	[SerializeField] TextMeshProUGUI textFps;
 	public void AddScore(){
 		this.score+=10;
 	}
@@ -14,6 +18,23 @@ public class UIController:MonoBehaviour{
 		Application.targetFrameRate=60;
 	}
 	void Update(){
-		textMeshProUI.text=String.Format("{0:#,0}",score);
+		textScore.text=String.Format("{0:#,0}",score);
+		timeMn-=Time.deltaTime;
+		timeCnt+=Time.timeScale/Time.deltaTime;
+		frames++;
+		if(timeMn<0){
+			timeMn=1;
+			float fps=timeCnt/frames;
+			textFps.text=fps.ToString("f1")+"fps";
+			if(fps<30){
+				textFps.color=new Color32(80,80,254,255);
+			}else if(fps<40){
+				textFps.color=new Color32(159,159,254,255);
+			}else{
+				textFps.color=new Color32(254,254,254,255);
+			}
+			timeCnt=0;
+			frames=0;
+		}
 	}
 }
