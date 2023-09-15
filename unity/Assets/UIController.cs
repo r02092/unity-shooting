@@ -10,6 +10,9 @@ public class UIController:MonoBehaviour{
 	public void AddScore(){
 		this.score+=10;
 	}
+	void Start(){
+		Application.targetFrameRate=60;
+	}
 	void Update(){
 		textMeshProUI.text=String.Format("{0:#,0}",score);
 	}

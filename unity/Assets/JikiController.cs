@@ -6,7 +6,7 @@ public class JikiController:MonoBehaviour{
 	private int t=0;
 	public GameObject PlBulletPrefab;
 	void Update(){
-		float c=4;
+		float c=8;
 		if(!GameObject.Find("GameOver").GetComponent<UnityEngine.UI.Image>().enabled){
 			if(Input.GetKey(KeyCode.DownArrow )&&transform.position.y> 80)transform.Translate( 0,-c,0);
 			if(Input.GetKey(KeyCode.LeftArrow )&&transform.position.x> 96)transform.Translate(-c, 0,0);

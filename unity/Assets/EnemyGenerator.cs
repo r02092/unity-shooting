@@ -14,34 +14,34 @@ public class EnemyGenerator:MonoBehaviour{
 			case 0:
 				type=0;
 				break;
-			case 1920:
+			case 480:
 				type=1;
 				break;
-			case 3840:
+			case 960:
 				type=2;
 				break;
-			case 5760:
+			case 1440:
 				type=3;
 				break;
-			case 8640:
+			case 2160:
 				type=4;
 				break;
-			case 11520:
+			case 2880:
 				type=0;
 				break;
-			case 13440:
+			case 3360:
 				type=3;
 				break;
-			case 16320:
+			case 4080:
 				type=5;
 				break;
-			case 18240:
+			case 4560:
 				type=1;
 				break;
-			case 20160:
+			case 5040:
 				type=6;
 				break;
-			case 21600:
+			case 5400:
 				type=7;
 				break;
 			default:
