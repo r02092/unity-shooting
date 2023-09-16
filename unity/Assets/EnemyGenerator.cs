@@ -60,11 +60,12 @@ public class EnemyGenerator:MonoBehaviour{
 					new Vector2(16+864*i,320),
 					new Vector2(448,960)
 				}[type],Quaternion.identity);
+				obj.name="ene"+type.ToString()+"-"+i.ToString();
 				obj.GetComponent<SpriteRenderer>().sprite=Resources.LoadAll<Sprite>("enemy")[new int[]{0,1,2,3,4,5,6,7}[type]];
 				obj.GetComponent<EnemyController>().type=type;
 				obj.GetComponent<EnemyController>().id=i;
 				obj.GetComponent<EnemyController>().r=new int[]{32,32,32,32,32,32,32,32}[type];
-				obj.GetComponent<EnemyController>().hp=new int[]{9,9,9,9,9,9,1,9}[type];
+				obj.GetComponent<EnemyController>().hp=new int[]{9,9,9,9,9,9,1,1000}[type];
 			}
 		}
 		time++;

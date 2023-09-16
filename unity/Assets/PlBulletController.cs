@@ -8,7 +8,7 @@ public class PlBulletController:MonoBehaviour{
 		if(transform.position.y>960)Destroy(gameObject);
 	}
 	void OnTriggerEnter2D(Collider2D coll){
-		if(coll.gameObject.name=="enemy(Clone)"){
+		if(coll.gameObject.name.Substring(0,3)=="ene"){
 			GameObject.Find("GameObject").GetComponent<UIController>().AddScore();
 			if(coll.gameObject.GetComponent<EnemyController>().hp--<1){
 				if(coll.gameObject.GetComponent<EnemyController>().type==7)GameObject.Find("Clear").GetComponent<UnityEngine.UI.Image>().enabled=true;

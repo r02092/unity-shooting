@@ -31,7 +31,7 @@ public class JikiController:MonoBehaviour{
 	}
 	void OnTriggerStay2D(Collider2D coll){
 		if(coll.gameObject.name!="pl-bullet(Clone)"){
-			int enemyR=coll.gameObject.name!="enemy(Clone)"?coll.gameObject.GetComponent<EnBulletController>().r:coll.gameObject.GetComponent<EnemyController>().r;
+			int enemyR=coll.gameObject.name.Substring(0,3)!="ene"?coll.gameObject.GetComponent<EnBulletController>().r:coll.gameObject.GetComponent<EnemyController>().r;
 			if(Math.Pow(enemyR,2)+36>Math.Pow(coll.gameObject.transform.position.x-transform.position.x,2)+Math.Pow(coll.gameObject.transform.position.y-transform.position.y,2)){
 				GameObject.Find("GameOver").GetComponent<UnityEngine.UI.Image>().enabled=true;
 				Destroy(coll.gameObject);
