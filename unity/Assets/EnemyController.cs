@@ -11,10 +11,27 @@ public class EnemyController:MonoBehaviour{
 	public bool eraseBullets;
 	public int time;
 	public int timeDamage;
+	public GameObject explosionPrefab;
 	public GameObject EnBulletPrefab;
+	private GameObject gameobjectObj;
 	private GameObject gameover;
 	private GameObject jiki;
+	public void damage(int pow){
+		if(gameObject.name.Substring(0,3)=="ene"){
+			gameobjectObj.GetComponent<UIController>().AddScore(10);
+			hp-=pow;
+			if(hp<1){
+				Instantiate(explosionPrefab,transform.position,Quaternion.identity);
+				if(type==7)GameObject.Find("Clear").GetComponent<UnityEngine.UI.Image>().enabled=true;
+				Destroy(gameObject);
+			}else{
+				timeDamage=time;
+				gameObject.GetComponent<SpriteRenderer>().color=new Color(0,0,1);
+			}
+		}
+	}
 	void Start(){
+		gameobjectObj=GameObject.Find("GameObject");
 		gameover=GameObject.Find("GameOver");
 		jiki=GameObject.Find("jiki");
 		time=0;

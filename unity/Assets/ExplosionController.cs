@@ -9,4 +9,7 @@ public class ExplosionController:MonoBehaviour{
 		gameObject.GetComponent<Renderer>().material.SetFloat("_Alpha",1-.004f*scale);
 		if(scale>250)Destroy(gameObject);
 	}
+	void OnTriggerEnter2D(Collider2D coll){
+		if(coll.gameObject.name.Substring(0,3)=="ene")coll.gameObject.GetComponent<EnemyController>().damage(2);
+	}
 }

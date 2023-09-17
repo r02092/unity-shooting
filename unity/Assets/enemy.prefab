@@ -101,6 +101,11 @@ MonoBehaviour:
   type: 0
   id: 0
   r: 0
+  hp: 0
+  eraseBullets: 0
+  time: 0
+  timeDamage: 0
+  explosionPrefab: {fileID: 7434296232820104594, guid: 980fc25c5e4feb2458c198d384a83b18, type: 3}
   EnBulletPrefab: {fileID: 2061168369204747242, guid: 508081be01ba4034ebdab632ceccfcb4, type: 3}
 --- !u!58 &7078208013971382929
 CircleCollider2D:
