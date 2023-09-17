@@ -36,6 +36,8 @@ public class JikiController:MonoBehaviour{
 				GameObject.Find("GameOver").GetComponent<UnityEngine.UI.Image>().enabled=true;
 				Destroy(coll.gameObject);
 				Destroy(gameObject);
+			}else{
+				GameObject.Find("GameObject").GetComponent<UIController>().AddScore(1);
 			}
 		}
 	}

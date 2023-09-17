@@ -9,7 +9,7 @@ public class PlBulletController:MonoBehaviour{
 	}
 	void OnTriggerEnter2D(Collider2D coll){
 		if(coll.gameObject.name.Substring(0,3)=="ene"){
-			GameObject.Find("GameObject").GetComponent<UIController>().AddScore();
+			GameObject.Find("GameObject").GetComponent<UIController>().AddScore(10);
 			if(coll.gameObject.GetComponent<EnemyController>().hp--<1){
 				if(coll.gameObject.GetComponent<EnemyController>().type==7)GameObject.Find("Clear").GetComponent<UnityEngine.UI.Image>().enabled=true;
 				Instantiate(explosionPrefab,transform.position,Quaternion.identity);

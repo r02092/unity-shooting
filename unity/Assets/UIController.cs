@@ -11,8 +11,8 @@ public class UIController:MonoBehaviour{
 	GameObject scoreText;
 	[SerializeField] TextMeshProUGUI textScore;
 	[SerializeField] TextMeshProUGUI textFps;
-	public void AddScore(){
-		this.score+=10;
+	public void AddScore(int ds){
+		this.score+=ds;
 	}
 	void Start(){
 		Application.targetFrameRate=60;
