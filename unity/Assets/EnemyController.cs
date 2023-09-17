@@ -12,11 +12,15 @@ public class EnemyController:MonoBehaviour{
 	public int time;
 	public int timeDamage;
 	public GameObject EnBulletPrefab;
+	private GameObject gameover;
+	private GameObject jiki;
 	void Start(){
+		gameover=GameObject.Find("GameOver");
+		jiki=GameObject.Find("jiki");
 		time=0;
 	}
 	void Update(){
-		if(!GameObject.Find("GameOver").GetComponent<UnityEngine.UI.Image>().enabled){
+		if(!gameover.GetComponent<UnityEngine.UI.Image>().enabled){
 			switch(type){
 				case 0:
 					if(time<90){
@@ -135,7 +139,7 @@ public class EnemyController:MonoBehaviour{
 						}else{
 							if(time%60<40){
 								if(time%4<1){
-									double angle=Math.Atan2(GameObject.Find("jiki").transform.position.y-transform.position.y,GameObject.Find("jiki").transform.position.x-transform.position.x);
+									double angle=Math.Atan2(jiki.transform.position.y-transform.position.y,jiki.transform.position.x-transform.position.x);
 									for(int i=-8;i<8;i++){
 										GameObject bullet=Instantiate(EnBulletPrefab,transform.position,Quaternion.identity);
 										int rnd=Random.Range(-2,2);

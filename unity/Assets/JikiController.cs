@@ -5,10 +5,16 @@ using UnityEngine;
 public class JikiController:MonoBehaviour{
 	private int t=0;
 	public GameObject PlBulletPrefab;
+	private GameObject gameover;
+	private GameObject gameobjectObj;
+	void Start(){
+		gameover=GameObject.Find("GameOver");
+		gameobjectObj=GameObject.Find("GameObject");
+	}
 	void Update(){
 		float c=8;
 		int dy=0;
-		if(!GameObject.Find("GameOver").GetComponent<UnityEngine.UI.Image>().enabled){
+		if(!gameover.GetComponent<UnityEngine.UI.Image>().enabled){
 			if(Input.GetKey(KeyCode.UpArrow)){
 				dy=1;
 			}else if(Input.GetKey(KeyCode.DownArrow)){
@@ -33,11 +39,11 @@ public class JikiController:MonoBehaviour{
 		if(coll.gameObject.name!="pl-bullet(Clone)"){
 			int enemyR=coll.gameObject.name.Substring(0,3)!="ene"?coll.gameObject.GetComponent<EnBulletController>().r:coll.gameObject.GetComponent<EnemyController>().r;
 			if(Math.Pow(enemyR,2)+36>Math.Pow(coll.gameObject.transform.position.x-transform.position.x,2)+Math.Pow(coll.gameObject.transform.position.y-transform.position.y,2)){
-				GameObject.Find("GameOver").GetComponent<UnityEngine.UI.Image>().enabled=true;
+				gameover.GetComponent<UnityEngine.UI.Image>().enabled=true;
 				Destroy(coll.gameObject);
 				Destroy(gameObject);
 			}else{
-				GameObject.Find("GameObject").GetComponent<UIController>().AddScore(1);
+				gameobjectObj.GetComponent<UIController>().AddScore(1);
 			}
 		}
 	}

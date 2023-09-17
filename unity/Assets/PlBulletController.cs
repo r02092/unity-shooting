@@ -3,13 +3,17 @@ using UnityEngine;
 
 public class PlBulletController:MonoBehaviour{
 	public GameObject explosionPrefab;
+	private GameObject gameobjectObj;
+	void Start(){
+		gameobjectObj=GameObject.Find("GameObject");
+	}
 	void Update(){
 		transform.Translate(0,20,0);
 		if(transform.position.y>960)Destroy(gameObject);
 	}
 	void OnTriggerEnter2D(Collider2D coll){
 		if(coll.gameObject.name.Substring(0,3)=="ene"){
-			GameObject.Find("GameObject").GetComponent<UIController>().AddScore(10);
+			gameobjectObj.GetComponent<UIController>().AddScore(10);
 			if(coll.gameObject.GetComponent<EnemyController>().hp--<1){
 				if(coll.gameObject.GetComponent<EnemyController>().type==7)GameObject.Find("Clear").GetComponent<UnityEngine.UI.Image>().enabled=true;
 				Instantiate(explosionPrefab,transform.position,Quaternion.identity);
